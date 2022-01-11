@@ -1,0 +1,565 @@
+{
+	"info": {
+		"_postman_id": "de9ec57f-52ed-441c-ab58-e9ac7a1d3039",
+		"name": "IIITH-RS-IUDX-APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Profile APIs",
+			"item": [
+				{
+					"name": "Create User Profile",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "authUrl",
+									"value": "{{KEYCLOAK_ENDPOINT}}/auth/realms/{{KEYCLOAK_REALM}}/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "{{$randomAlphaNumeric}}",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "{{KEYCLOAK_ENDPOINT}}/auth/realms/{{KEYCLOAK_REALM}}/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{KEYCLOAK_ENDPOINT}}/auth/realms/{{KEYCLOAK_REALM}}/account/callback",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "scope",
+									"value": "email",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "account",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{provider_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{provider_username}}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"roles\": [\n        \"consumer\"\n    ],\n    \"orgId\": \"c42709ce-1565-450a-9257-3c0739420ef8\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AUTH_ENDPOINT}}/auth/v1/user/profile",
+							"host": [
+								"{{AUTH_ENDPOINT}}"
+							],
+							"path": [
+								"auth",
+								"v1",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List User Profile",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "authUrl",
+									"value": "{{KEYCLOAK_ENDPOINT}}/auth/realms/{{KEYCLOAK_REALM}}/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "state",
+									"value": "{{$randomAlphaNumeric}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessToken",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "{{KEYCLOAK_ENDPOINT}}/auth/realms/{{KEYCLOAK_REALM}}/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{KEYCLOAK_ENDPOINT}}/auth/realms/{{KEYCLOAK_REALM}}/account/callback",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "scope",
+									"value": "email",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "account",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{provider_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{provider_username}}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AUTH_ENDPOINT}}/auth/v1/user/profile",
+							"host": [
+								"{{AUTH_ENDPOINT}}"
+							],
+							"path": [
+								"auth",
+								"v1",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Token APIs",
+			"item": [
+				{
+					"name": "Get token (via client-id, secret) Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "",
+								"type": "text",
+								"description": "Client ID (UUID)"
+							},
+							{
+								"key": "clientSecret",
+								"value": "",
+								"type": "text",
+								"description": "Client secret (40 chars in hexadecimal)"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"itemId\": \"iudx-rs-onem2m.iiit.ac.in\",\n    \"itemType\": \"resource_server\",\n    \"role\": \"consumer\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AUTH_ENDPOINT}}/auth/v1/token",
+							"host": [
+								"{{AUTH_ENDPOINT}}"
+							],
+							"path": [
+								"auth",
+								"v1",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Introspect token",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "authUrl",
+									"value": "{{KEYCLOAK_ENDPOINT}}/auth/realms/{{KEYCLOAK_REALM}}/protocol/openid-connect/auth",
+									"type": "string"
+								},
+								{
+									"key": "state",
+									"value": "{{$randomAlphaNumeric}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "{{KEYCLOAK_ENDPOINT}}/auth/realms/{{KEYCLOAK_REALM}}/protocol/openid-connect/token",
+									"type": "string"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{KEYCLOAK_ENDPOINT}}/auth/realms/{{KEYCLOAK_REALM}}/account/callback",
+									"type": "string"
+								},
+								{
+									"key": "tokenName",
+									"value": "Token",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "scope",
+									"value": "email",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "account",
+									"type": "string"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{provider_password}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{provider_username}}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"accessToken\": \"<a-valid-token>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AUTH_ENDPOINT}}/auth/v1/introspect",
+							"host": [
+								"{{AUTH_ENDPOINT}}"
+							],
+							"path": [
+								"auth",
+								"v1",
+								"introspect"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Data APIs",
+			"item": [
+				{
+					"name": "Latest Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://iudx-rs-onem2m.iiit.ac.in/ngsi-ld/v1/entities/research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm/AQ-AN00-00",
+							"protocol": "https",
+							"host": [
+								"iudx-rs-onem2m",
+								"iiit",
+								"ac",
+								"in"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities",
+								"research.iiit.ac.in",
+								"4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a",
+								"iudx-rs-onem2m.iiit.ac.in",
+								"iiith-env-aqm",
+								"AQ-AN00-00"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Temporal Data",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://iudx-rs-onem2m.iiit.ac.in/ngsi-ld/v1/temporal/entities?id=research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm/AQ-AN00-00&endtime=2021-08-21T11:30:00Z&time=2021-08-20T15:30:00Z&timerel=during",
+							"protocol": "https",
+							"host": [
+								"iudx-rs-onem2m",
+								"iiit",
+								"ac",
+								"in"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"temporal",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm/AQ-AN00-00"
+								},
+								{
+									"key": "endtime",
+									"value": "2021-08-21T11:30:00Z"
+								},
+								{
+									"key": "attrs",
+									"value": "pm2p5",
+									"disabled": true
+								},
+								{
+									"key": "options",
+									"value": "count",
+									"disabled": true
+								},
+								{
+									"key": "time",
+									"value": "2021-08-20T15:30:00Z"
+								},
+								{
+									"key": "timerel",
+									"value": "during"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Version Info APIs",
+			"item": [
+				{
+					"name": "version list API",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://iudx-rs-onem2m.iiit.ac.in/ngsi-ld/v1/entities?id=research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm-version/version-info",
+							"protocol": "https",
+							"host": [
+								"iudx-rs-onem2m",
+								"iiit",
+								"ac",
+								"in"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm-version/version-info"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "version list API with query",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://iudx-rs-onem2m.iiit.ac.in/ngsi-ld/v1/entities?id=research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm-version/version-info&q=\"deviceInfo.deviceID==AQ-MG00-00\"",
+							"protocol": "https",
+							"host": [
+								"iudx-rs-onem2m",
+								"iiit",
+								"ac",
+								"in"
+							],
+							"path": [
+								"ngsi-ld",
+								"v1",
+								"entities"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm-version/version-info"
+								},
+								{
+									"key": "q",
+									"value": "\"deviceInfo.deviceID==AQ-MG00-00\""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
