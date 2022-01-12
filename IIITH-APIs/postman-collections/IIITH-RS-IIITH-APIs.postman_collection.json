@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "76c84b7a-c226-4a66-9cae-44dea4424b7f",
+		"name": "IIITH-RS-IIITH-APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User Profile APIs",
+			"item": [
+				{
+					"name": "Register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"<username>\",\r\n    \"email\":\"<a-valid-iiit-email-id>\",\r\n    \"password\":\"<password>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/register-user",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"register-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Confirm user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"<a-valid-iiit-email-id>\",\r\n    \"otp\": \"<otp-received-on-email>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/confirm-user",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"confirm-user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API KEY APIs",
+			"item": [
+				{
+					"name": "Get api_key",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"<a-valid-iiit-email-id>\",\r\n    \"password\": \"<password>\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/get-api_key",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"get-api_key"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Introspect api_key",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"api_key\": \"<a-valid-api_key>\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/introspect",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"introspect"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Data APIs",
+			"item": [
+				{
+					"name": "Get latest  data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/channels/AQ-AN00-00/feeds/last.json?api_key=",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"channels",
+								"AQ-AN00-00",
+								"feeds",
+								"last.json"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get temporal data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/channels/AQ-AN00-00/feeds.json/?start=2022-01-06 20:20:01&end=2022-01-07 20:20:01&api_key",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"channels",
+								"AQ-AN00-00",
+								"feeds.json",
+								""
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "2022-01-06 20:20:01"
+								},
+								{
+									"key": "end",
+									"value": "2022-01-07 20:20:01"
+								},
+								{
+									"key": "api_key",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

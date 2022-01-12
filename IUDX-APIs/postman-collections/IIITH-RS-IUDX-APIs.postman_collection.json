@@ -376,18 +376,11 @@
 							}
 						],
 						"url": {
-							"raw": "https://iudx-rs-onem2m.iiit.ac.in/ngsi-ld/v1/entities/research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm/AQ-AN00-00",
-							"protocol": "https",
+							"raw": "{{Latest_Data_API_Variable}}/research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm/AQ-AN00-00",
 							"host": [
-								"iudx-rs-onem2m",
-								"iiit",
-								"ac",
-								"in"
+								"{{Latest_Data_API_Variable}}"
 							],
 							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities",
 								"research.iiit.ac.in",
 								"4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a",
 								"iudx-rs-onem2m.iiit.ac.in",
@@ -410,19 +403,9 @@
 							}
 						],
 						"url": {
-							"raw": "https://iudx-rs-onem2m.iiit.ac.in/ngsi-ld/v1/temporal/entities?id=research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm/AQ-AN00-00&endtime=2021-08-21T11:30:00Z&time=2021-08-20T15:30:00Z&timerel=during",
-							"protocol": "https",
+							"raw": "{{Temporal_Data_API_Variable}}?id=research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm/AQ-AN00-00&endtime=2021-08-21T11:30:00Z&time=2021-08-20T15:30:00Z&timerel=during",
 							"host": [
-								"iudx-rs-onem2m",
-								"iiit",
-								"ac",
-								"in"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"temporal",
-								"entities"
+								"{{Temporal_Data_API_Variable}}"
 							],
 							"query": [
 								{
@@ -485,18 +468,9 @@
 							}
 						},
 						"url": {
-							"raw": "https://iudx-rs-onem2m.iiit.ac.in/ngsi-ld/v1/entities?id=research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm-version/version-info",
-							"protocol": "https",
+							"raw": "{{Version_Info_API_Variable}}?id=research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm-version/version-info",
 							"host": [
-								"iudx-rs-onem2m",
-								"iiit",
-								"ac",
-								"in"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities"
+								"{{Version_Info_API_Variable}}"
 							],
 							"query": [
 								{
@@ -532,18 +506,9 @@
 							}
 						},
 						"url": {
-							"raw": "https://iudx-rs-onem2m.iiit.ac.in/ngsi-ld/v1/entities?id=research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm-version/version-info&q=\"deviceInfo.deviceID==AQ-MG00-00\"",
-							"protocol": "https",
+							"raw": "{{Version_Info_API_Variable}}?id=research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm-version/version-info&q=\"deviceInfo.deviceID==AQ-MG00-00\"",
 							"host": [
-								"iudx-rs-onem2m",
-								"iiit",
-								"ac",
-								"in"
-							],
-							"path": [
-								"ngsi-ld",
-								"v1",
-								"entities"
+								"{{Version_Info_API_Variable}}"
 							],
 							"query": [
 								{

@@ -25,19 +25,37 @@ def get_token(auth_server_url, clientId, clinetSecret, itemId, itemType, data_fo
         "role": "consumer"
         }
     try:
-        try:
-            response = requests.post(auth_server_url + "/auth/v1/token", json=body, headers=headers)
-        except TypeError:
-            response = requests.post(auth_server_url + "/auth/v1/token", data=json.dumps(body), headers=headers)
-        return  json.loads(response.text)["results"]["accessToken"]
-    except:
-        return response.status_code, json.dumps(response.json(), indent = 2)
+        response = requests.post(auth_server_url + "/auth/v1/token", json=body, headers=headers)
+    except TypeError:
+        response = requests.post(auth_server_url + "/auth/v1/token", data=json.dumps(body), headers=headers)
+    print("\n Response Content:",response.text)
+    return  json.loads(response.text)["results"]["accessToken"]
+
+def introspect_token(auth_server_url, accessToken, data_format="json"):
+    """
+        Method description:
+        A POST request to get the token from IUDX Authoriation Server
+
+        Parameters:
+        accessToken : [str] Token obtained from IUDX authorization server
+    """
+
+    body = {
+        "accessToken": accessToken,
+        }
+    try:
+        response = requests.post(auth_server_url + "/auth/v1/introspect", json=body)
+    except TypeError:
+        response = requests.post(auth_server_url + "/auth/v1/introspect", data=json.dumps(body))
+    print("\n Response Status Code:",response.status_code)
+    print("\n Response Content:",response.text)
+    return  response.status_code, json.dumps(response.json(), indent = 2)
 
 
 def get_version_info(resource_server_url, resource_group_id, token, deviceID = "nan", data_format="json"):
     """
         Method description:
-        A POST request to get the token from IUDX Authoriation Server
+        A GET request to get the version information
 
         Parameters:
         resource_server_url : [str] URL of the resource,
@@ -53,13 +71,15 @@ def get_version_info(resource_server_url, resource_group_id, token, deviceID = "
     else:
         response = requests.get(resource_server_url + "/ngsi-ld/v1/entities?id=" + resource_group_id + "&" + \
                                 "q="+ '"' + "deviceInfo.deviceID==" + deviceID + '"', headers=headers)
+    print("\n Response Status Code:",response.status_code)
+    print("\n Response Content:",response.text)
     return response.status_code, json.dumps(response.json() , indent=2)
 
 
 def get_latest_data(resource_server_url, resource_id, token, data_format="json"):
     """
         Method description:
-        A POST request to get the token from IUDX Authoriation Server
+        A GET request to get the latest data of given resource item
 
         Parameters:
         resource_server_url : [str] URL of the resource,
@@ -71,13 +91,15 @@ def get_latest_data(resource_server_url, resource_id, token, data_format="json")
               }
 
     response = requests.get(resource_server_url +  "/ngsi-ld/v1/entities/" + resource_id, headers=headers)
+    print("\n Response Status Code:",response.status_code)
+    print("\n Response Content:",response.text)
     return response.status_code, json.dumps(response.json() , indent=2)
 
 def get_temporal_data(resource_server_url, resource_id, token, timerel = "nan", time = "nan", endtime = "nan", \
                       attrs = "nan", options = "nan", limit = str(2000), offset = str(0), data_format="json"):
     """
         Method description:
-        A POST request to get the token from IUDX Authoriation Server
+        A GET request to get the temporal data of given resource item
 
         Parameters:
         resource_server_url : [str] URL of the resource server,
