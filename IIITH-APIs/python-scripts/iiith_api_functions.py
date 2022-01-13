@@ -1,3 +1,14 @@
+"""
+	The code contains functions required to retrieve data from IIITH Resource Server (Version 1.0.0) using IIITH-APIs.
+
+	Initial Contributors:
+        Shubham Mante : Master Research Scholar, IIIT-Hyderabad, India
+	Suhas Vaddhiparthy: Master Research Scholar, IIIT-Hyderabad, India
+   
+    New contributors :
+"""
+
+
 import requests
 import json
 
