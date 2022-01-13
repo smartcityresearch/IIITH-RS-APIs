@@ -53,12 +53,12 @@ print("\n Latest data of " + device_id + ":" + latest_data)
 
 """
 
-# status_code, temporal_data_start = get_temporal_data(api_key, device_id, start = "2021-08-20T15:30:00Z")
+# temporal_data_start = get_temporal_data(api_key, device_id, start_time = "2021-08-20 15:30:00")
 # print("\n Temporal data of " + device_id + ":" +temporal_data_start)
 
-# status_code, temporal_data_end = get_temporal_data(api_key, device_id, end = "2021-08-20T15:30:00Z")
+# temporal_data_end = get_temporal_data(api_key, device_id, end_time = "2021-08-20 15:30:00")
 # print("\n Temporal data of " + device_id + ":" +temporal_data_end)
 
-# status_code, temporal_data_start-end = get_temporal_data(api_key, device_id, start = "2021-08-20T15:30:00Z", end = "2021-08-21T15:30:00Z")
+# temporal_data_start_end = get_temporal_data(api_key, device_id, start_time = "2021-08-20 15:30:00", end_time = "2021-08-21 15:30:00")
 # print("\n Temporal data of " + device_id + ":" +temporal_data_start_end)
 

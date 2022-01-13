@@ -30,7 +30,8 @@ def get_api_key(user_email, user_pass, data_format="json"):
         response = requests.post("https://iudx-rs-onem2m.iiit.ac.in/api/get-api_key", json=body)
     except TypeError:
         response = requests.post("https://iudx-rs-onem2m.iiit.ac.in/api/get-api_key", data=json.dumps(body))
-    return  json.loads(response.text)["results"]["accessApiKey"]
+    print("Result Content:",response.text)
+    return json.loads(response.text)["results"]["accessApiKey"]
 
 def introspect_api_key(api_key, data_format="json"):
     """
@@ -58,9 +59,12 @@ def get_latest_data(api_key, device_id, data_format="json"):
         Parameters:
         api_key : [str] api_key that is obtained by providing valid credentials
     """
-
-    response = requests.get("https://iudx-rs-onem2m.iiit.ac.in/channels/" + device_id + "/feeds/last.json?api_key=" + api_key)
-    return response.status_code, json.dumps(response.json() , indent=2)
+    try:
+        response = requests.get("https://iudx-rs-onem2m.iiit.ac.in/channels/" + device_id + "/feeds/last.json?api_key=" + api_key)
+    except TypeError:
+        response = "No response"
+    print("Result Content:",response.text)
+    return json.dumps(response.json() , indent=2)
 
 def get_temporal_data(api_key, node_id, start_time = None, end_time = None, data_format="json"):
     """
@@ -74,20 +78,22 @@ def get_temporal_data(api_key, node_id, start_time = None, end_time = None, data
         end_time : [str] Start time for the temporal query in [YYYY-MM-DD  HH:MM:SS] format,
 
     """
-    if start == None:
+    if start_time == None:
         response = requests.get("https://iudx-rs-onem2m.iiit.ac.in/channels/" + node_id + "/feeds.json?api_key=" + \
-                                api_key + "end=" + end_time)
-    elif end == None:
+                                api_key + "&end=" + end_time)
+    elif end_time == None:
         response = requests.get("https://iudx-rs-onem2m.iiit.ac.in/channels/" + node_id + "/feeds.json?api_key=" + \
-                                api_key + "start=" + start_time)
-    elif start ==None and end == None:
+                                api_key + "&start=" + start_time)
+    elif start_time ==None and end_time == None:
         response = requests.get("https://iudx-rs-onem2m.iiit.ac.in/channels/" + node_id + "/feeds.json?api_key=" + \
                                 api_key)
-    elif start !=None and end != None:
-        response = requests.get("https://iudx-rs-onem2m.iiit.ac.in/channels/" + node_id + "/feeds.json?api_key=" + \
+    elif start_time !=None and end_time != None:
+        print("https://iudx-rs-onem2m.iiit.ac.in/channels/" + node_id + "/feeds.json?api_key=" + \
                                 api_key + "start=" + start_time + "end=" + end_time)
+        response = requests.get("https://iudx-rs-onem2m.iiit.ac.in/channels/" + node_id + "/feeds.json?api_key=" + \
+                                api_key + "&start=" + start_time + "&end=" + end_time)
     else:
-        response = ""
+        response = "No response"
         print("Incorrect URL endpoint")
     return json.dumps(response.json() , indent=2)
 
