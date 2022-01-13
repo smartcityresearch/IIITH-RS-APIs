@@ -13,7 +13,7 @@
 
 # python_codes
 * Install the "requests", "os" and "json" modules (skip this step if already installed)
-* Uncomment required code lines and run get_data script (iiith_api_get_data.py / iudx_api_get_data) to get token / api_key and data (Latest and Temporal)
+* Uncomment required code lines and run get_data script (iiith_api_get_data.py / iudx_api_get_data.py) to get token / api_key and data (Latest and Temporal)
 
 
 ***Note:*** The user registration process for IUDX_APIs and IITH_APIs should be done only once so it is recommended to complete it using Postman Collection. Later, you can use Python scripts.

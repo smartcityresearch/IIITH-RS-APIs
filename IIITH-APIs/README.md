@@ -1,4 +1,5 @@
-# IIITH-RS-IIITH-APIs
+# IIITH-RS-IIITH-APIs* 
+It is assumed that you have already imported the IIITH-RS-IIITH-APIs.postman_collection.json & IIITH-RS_IIITH_Environment.postman_environment.json files in POSTMAN prior to the procedure given below.
 
 # User Registration Procedure
 * ***Step-1:*** Enter the username, email ID (iiit domain: @iiit.ac.in, @research.iiit.ac.in, @ students.iiit.ac.in) and password (store the password for future usage)

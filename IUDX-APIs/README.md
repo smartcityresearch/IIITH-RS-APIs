@@ -35,6 +35,24 @@
 ![secure_resource_get_token.png](https://github.com/smartcityresearch/IIITH-RS-APIs/blob/main/IUDX-APIs/images/secure_resource_get_token.png)
 * ***Step-3:*** Use the token to get the version information/ latest data/ temporal data
 
+
+# Follow below steps to get the latest / temoral data of all the resources belong to IIITH Resource Server
+* ***Step-1:*** Get the token for version-info API request and retrieve information of all the resorces belong to a particular resource group. Below are the resource IDs of all version-info resources.
+    1. research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-aqm-version/version-info
+    2. research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-env-weather-version/version-info
+    3. research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-water-monitoring-version/version-info
+    4. research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-energy-meter-version/version-info
+
+***Note:*** Before retrieving version information of secure resources, IIITH-RS admin should allow the consumer ["api"] access. Without such access, a consumer cannot retrieve the information.
+
+* ***Step-2:*** Use the resource ID of a resource whose data has to be retrieved. 
+    1. Ex. resource ID of one of resources belong to iiith-energy-meter : research.iiit.ac.in/4786f10afbf48ed5c8c7be9b4d38b33ca16c1d9a/iudx-rs-onem2m.iiit.ac.in/iiith-energy-meter
+
+* ***Step-3:*** Get a token for that resource (Open resource / Secure Resource)
+
+* ***Step-4:*** Get the data (latest / temporal)
+
+
 # Reference:
 * https://rs.iudx.org.in/apis
 * https://api.catalogue.iudx.org.in/apis
