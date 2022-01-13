@@ -213,7 +213,7 @@
 			"name": "Token APIs",
 			"item": [
 				{
-					"name": "Get token (via client-id, secret) Copy",
+					"name": "Get token (via client-id, secret)",
 					"request": {
 						"auth": {
 							"type": "noauth"
