@@ -10,6 +10,8 @@
 
 ![keycloak_registration_window.png](https://github.com/smartcityresearch/IIITH-RS-APIs/blob/main/IUDX-APIs/images/keycloak_registration_window.png)
 * ***Step-2:*** Click on ***Register***,  fill the required information and click on ***Register*** and close the window.
+
+![keycloak_user_registration.png](https://github.com/smartcityresearch/IIITH-RS-APIs/blob/main/IUDX-APIs/images/keycloak_user_registration.png)
 * ***Step-3:*** You will receive a link on the email that you have used during user registration (Check the span/junk folder if you don't receive the email in Inbox folder). Click on the link and activate your keycloak account.
 * ***Step-4:*** Click the ***Get New Access Token*** button, after which you will be prompted to enter the email address and password you have registered with. If the credentials are correct, a token is returned. Click Use Token to use that particular token for the request.
 * ***Step-5:*** Send the POST request along with the token obtained during ***Step-4:***  (The required details are already filled in the body of the Create User Profile POST request as shown below.)
