@@ -14,5 +14,5 @@
 
 ![get_api_key.png](https://github.com/smartcityresearch/IIITH-RS-APIs/blob/main/IIITH-APIs/images/get_api_key.png)
 * ***Step-2:*** Click on the send button to get the api_key.
-* ***Step-3:*** Use the token to get the version latest / temporal data
+* ***Step-3:*** Use the token to get the latest / temporal data
 
